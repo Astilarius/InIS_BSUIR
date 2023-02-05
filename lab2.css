@@ -1,0 +1,75 @@
+body{
+    font-family: sans-serif;
+    margin: 0%;
+}
+
+a{
+    text-decoration: none;
+}
+
+header{
+    background-color:lightblue;
+}
+
+header a{
+    margin: 0% 5% 0% 5%;
+}
+
+.inis{
+    width:fit-content;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+img{
+    height: 300px;
+}
+
+.ramkablok{
+    list-style-type: none;
+    text-align: center; 
+    padding: 0;
+    margin: 0;
+}
+
+.ramka{
+    display: inline-block;
+    border-style: solid;
+    border-width: 2px;
+    border-color: blue;
+    border-radius: 15px;
+    height: 15%;
+    width: 37%;
+    padding: 3px;
+    margin: 10px 2% 10px 2%;
+}
+
+.horizontalBox{
+    background-color: #2b2a70; 
+    color: white;
+    list-style-type: none;
+    text-align: center; 
+    padding: 0;
+    margin: 0;
+}
+  
+.horizontalElement {
+display: inline-block;
+font-size: 20px;
+padding: 20px;
+}
+
+.darkblue{
+    background-color: #2b2a70; 
+    color: white;
+}
+
+footer li a{
+    color: white;
+}
+
+.blueline{
+    height: 15px;
+    width: auto;
+    background-color: #2b2a70; 
+}
