@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./lab2.css">
+    <title>INiS</title>
+  </head>
+  <body>
+    <button onclick="main()">я кнопка</button>
+    <script>
+        function main(){
+            var  personalMovieDB = 
+            {
+                privat:false,
+                movies:{}
+            }
+            if(!personalMovieDB.privat){
+            for (let i = 0; i < 3; i++){
+                var movieName = ''
+                while(movieName===''||movieName.length>50){
+                    movieName = prompt('Один из последних просмотренных фильмов?', '')
+                    console.log(movieName)
+                }
+                var movieRating = ''
+                while(movieRating===''){
+                    movieRating = prompt('На сколько оцените его?', '')
+                    console.log(movieRating)
+                }
+                personalMovieDB.movies[movieName]=movieRating
+            }
+            const body = document.body;
+            const tbl = document.createElement('table')
+            const tr = tbl.insertRow();
+            const movieNameHeader = tr.insertCell()
+            const movieRatingHeader = tr.insertCell()
+            movieNameHeader.appendChild(document.createTextNode('Название фильма'))
+            movieRatingHeader.appendChild(document.createTextNode('Рейтинг'))
+            for (var movie in personalMovieDB.movies){
+                const tr = tbl.insertRow();
+                const movieName = tr.insertCell()
+                const movieRating = tr.insertCell()
+                movieName.appendChild(document.createTextNode(movie))
+                movieRating.appendChild(document.createTextNode(personalMovieDB.movies[movie]))
+            }
+            console.log(tbl)
+            const p = document.createElement('p')
+            p.appendChild(document.createTextNode('Мои фильмы:'))
+            body.appendChild(p)
+            body.appendChild(tbl)
+            }
+        }
+        // var numberOfFilms=''
+        // while(numberOfFilms===''){
+        //     numberOfFilms = prompt('Сколько фильмов вы уже посмотрели?', '')
+        // }
+        // var personalMovieDB = 
+        // {
+        //     count: numberOfFilms,
+        //     movies: {}
+        // }
+        // var movieName = ''
+        // while(movieName===''||movieName.length>50){
+        //     movieName = prompt('Один из последних просмотренных фильмов?', '')
+        //     console.log(movieName)
+        // }
+        // var movieRating = ''
+        // while(movieRating===''){
+        //     movieRating = prompt('На сколько оцените его?', '')
+        //     console.log(movieRating)
+        // }
+        // var movieName2 = ''
+        // while(movieName2===''||movieName2.length>50){
+        //     movieName2 = prompt('Один из последних просмотренных фильмов?', '')
+        //     console.log(movieName2)
+        // }
+        // var movieRating2 = ''
+        // while(movieRating2===''){
+        //     movieRating2 = prompt('На сколько оцените его?', '')
+        //     console.log(movieRating2)
+        // }
+        // personalMovieDB.movies[movieName] = movieRating
+        
+        // personalMovieDB.movies[movieName2] = movieRating2
+        // console.log(personalMovieDB)
+    </script>
+  </body>
+</html>
