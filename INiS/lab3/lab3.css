@@ -9,8 +9,15 @@
     display: inline-block;
 }
 .poloska{
+    margin-left: auto;
+    margin-right: auto;
     background-color: blue;
     height: 40px;
+    will-change: contents;
+    animation-timing-function:ease-in-out;
+    animation-name: grow;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
 }
 body{
     margin: 0px;
@@ -36,12 +43,20 @@ body{
     padding: 2%;
 }
 .shirt div button{
-    margin-left: 5%;
+    background-color: #3a3892;
+    color: white;
+    margin-left: 10%;
+    border-radius: 5px;
+    padding: 2px;
+}
+.shirt div button:active{
+    background-color: #18173c;
 }
 .shirts{
     width: 50%;
     margin-left: auto;
     margin-right: auto;
+
 }
 .footer{
     background-color: #2b2a70; 
@@ -55,4 +70,19 @@ body{
     display: inline-block;
     font-size: 15px;
     margin-left: 10%;
+}
+
+@keyframes grow{
+    0%{
+        width: 0px;
+    }
+    100%{
+        width: calc(+100%);
+    }
+}
+
+.footer li:hover{
+    text-decoration-line: underline;
+    text-decoration-color: white;
+    text-decoration-style: solid;
 }
