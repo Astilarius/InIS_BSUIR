@@ -26,6 +26,8 @@ article {
 
 .line{
   display: flex;
+  flex-direction: row;
+  flex:1;
 }
 
 .reverse-line{
@@ -36,7 +38,6 @@ article {
 .column{
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap-reverse;
 }
 
 .reverse-column{
