@@ -114,7 +114,10 @@ shirts.forEach(shirt=>{
     p.textContent=`Avaliable in ${Object.keys(shirt.colors).length} colors`
     button1.textContent="Quick view"
     button2.textContent="See page"
-    
+    button2.onclick = ()=>{
+        localStorage.setItem('shirt', JSON.stringify(shirt))
+        location.href='../lab4/INiS_lab4.html'
+    }
     div.appendChild(img)
     textDiv.appendChild(h3)
     textDiv.appendChild(p)
