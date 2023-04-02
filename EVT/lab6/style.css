@@ -1,0 +1,45 @@
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  background: rgb(52, 206, 142);
+  height: 100px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  line-height: 100px;
+  margin: 0;
+}
+button {
+  will-change: contents;
+  animation-timing-function: linear;
+  animation-name: shake;
+  animation-duration: 0.1s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+
+  margin: 50px;
+  font-size: 20px;
+  background-color: red;
+}
+button:hover {
+  animation-name:unset;
+  margin: 50px;
+  font-size: 20px;
+  background-color: green;
+}
+@keyframes shake{
+  0%{
+    transform: translateX(-3px);
+  }
+  100%{
+    transform: translateX(+3px);
+  }
+}
