@@ -42,5 +42,5 @@ article {
 
 .reverse-column{
   display: flex;
-  flex-wrap: wrap-reverse;
+  flex-direction: column-reverse;
 }
