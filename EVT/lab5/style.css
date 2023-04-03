@@ -27,8 +27,8 @@ article {
 @media screen and (min-width: 1400px) {
   .adaptive{
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: 25% 25% 25% 25%;
+    grid-template-columns: none none none none;
+    grid-template-rows: none none none none;
   }
   article:nth-child(1){
     grid-row-start: 1;
@@ -66,7 +66,7 @@ article {
   .adaptive{
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 16% 16% 16% 16% 16% 16%;
+    grid-template-rows: none none none none none none;
   }
   article:nth-child(1){
     grid-row-start: 1;
