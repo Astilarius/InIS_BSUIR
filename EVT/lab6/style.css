@@ -29,12 +29,6 @@ button {
   font-size: 20px;
   background-color: red;
 }
-button:hover {
-  animation-name:unset;
-  margin: 50px;
-  font-size: 20px;
-  background-color: green;
-}
 @keyframes shake{
   0%{
     transform: translateX(-3px);
@@ -42,4 +36,47 @@ button:hover {
   100%{
     transform: translateX(+3px);
   }
+}
+button:hover {
+  animation-name:unset;
+  margin: 50px;
+  font-size: 20px;
+  background-color: green;
+}
+@keyframes drop{
+  0%{
+    transform: translateY(-0px);
+  }
+  25%{
+    transform: translateY(-300px);
+  }
+  50%{
+    transform: translateY(+0px);
+    height: 70px;
+  }
+  55%{
+    transform: translateY(+0px);
+    height: 35px;
+  }
+  60%{
+    height: 70px;
+  }
+  75%{
+    transform: translateY(-150px);
+  }
+  100%{
+    transform: translateY(-0px);
+  }
+}
+.ball{
+  /* float: right; */
+  position:absolute;
+  will-change: contents;
+  animation-timing-function:ease-in;
+  animation-name: drop;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  height: 70px;
+  width: 100px;
+  bottom: 200px;
 }

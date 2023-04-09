@@ -1,12 +1,6 @@
-// console.log('log')
-
 const targets = document.getElementsByClassName('target')
 
 console.log(targets)
-
-// [].forEach.call(list, function(el) {
-//     console.log(el.id);
-// });
 
 for (const el of targets){
     el.onmousedown = (e) => {
