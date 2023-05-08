@@ -81,21 +81,19 @@ divs.forEach(div => {
         const now = (new Date()).getTime();
         lastTouchTime = now;
         
-        div.style.left = `${initialX}px`;
-        div.style.top = `${initialY}px`;
     }
     function documentTouchMove(e) {
         if (isDragging) {
             const touch = e.touches[0];
-            const dx = touch.clientX - initialX;
-            const dy = touch.clientY - initialY;
+            const dx = touch.clientX;
+            const dy = touch.clientY;
             // const dx = initialX;
             // const dy = initialY;
 
 
             //положение блока до + смещение
-            div.style.left = `${initialDivX + dx}px`;
-            div.style.top = `${initialDivY + dy}px`;
+            div.style.left = `${dx}px`;
+            div.style.top = `${dy}px`;
         }
     }
     function documentTouchEnd(e) {
