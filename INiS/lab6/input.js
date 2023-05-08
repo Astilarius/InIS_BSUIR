@@ -81,8 +81,8 @@ divs.forEach(div => {
         const now = (new Date()).getTime();
         lastTouchTime = now;
         
-        div.style.left = `${initialDivX}px`;
-        div.style.top = `${initialDivY}px`;
+        div.style.left = `${initialX}px`;
+        div.style.top = `${initialY}px`;
     }
     function documentTouchMove(e) {
         if (isDragging) {
