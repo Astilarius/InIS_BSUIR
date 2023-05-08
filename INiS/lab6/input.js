@@ -1,71 +1,67 @@
-const targets = document.getElementsByClassName('target')
+const divs = document.querySelectorAll('.target');
 
-console.log(targets)
+let isFocus = false;
 
-for (const el of targets){
-    el.onmousedown = (e) => {
 
-        var rect = el.getBoundingClientRect();
+divs.forEach(div => {
 
-        const TrueStartPosX = rect.left
-        const TrueStartPosY = rect.top
-        document.onkeydown = (e2) => {
-            if (e2.key = 'Escape'){
-                document.onmousemove = null;
-                el.style.top = `${TrueStartPosY}px`;
-                el.style.left = `${TrueStartPosX}px`;
+    let isDragging = false;
 
+    let initialX;
+    let initialY;
+
+    let initialDivX;
+    let initialDivY;
+
+    //mouse
+    {
+        div.addEventListener('mousedown', e => {
+            div.style.background = "yellow"
+            isDragging = true;
+
+            initialX = e.clientX;
+            initialY = e.clientY;
+
+            initialDivX = parseInt(div.style.left) || 0;
+            initialDivY = parseInt(div.style.top) || 0;
+        });
+
+        div.addEventListener('dblclick', e => {
+            isDragging = true;
+            div.style.background = "yellow"
+        });
+
+        div.addEventListener('mousemove', e => {
+
+            if (isDragging) {
+                //смещение
+
+                const dx = e.clientX - initialX;
+                const dy = e.clientY - initialY;
+
+                //положение блока до + смещение
+                div.style.left = `${initialDivX + dx}px`;
+                div.style.top = `${initialDivY + dy}px`;
             }
-        }
-        let startPosY = e.clientY
-        let startPosX = e.clientX
-        document.onmousemove = (e2) => {
-            // calculate the new cursor position:
-            pos1 = startPosX - e2.clientX;
-            pos2 = startPosY - e2.clientY;
-            startPosX = e2.clientX;
-            startPosY = e2.clientY;
-            // set the element's new position:
-            el.style.top = (el.offsetTop - pos2) + "px";
-            el.style.left = (el.offsetLeft - pos1) + "px";
-        }
-        document.onmouseup = ()=>{
-            document.onmouseup = null;
-            document.onmousemove = null;
-            document.onkeydown = null;
-        }
-    }
-    el.ondblclick = (e) => {
-        let startPosY = e.clientY
-        let startPosX = e.clientX
+        });
 
-        var rect = el.getBoundingClientRect();
+        div.addEventListener('mouseup', e => {
+            div.style.background = "red"
+            isDragging = false;
+        });
 
-        const TrueStartPosX = rect.left
-        const TrueStartPosY = rect.top
-        document.onkeydown = (e2) => {
-            if (e2.key = 'Escape'){
-                document.onmousemove = null;
-                el.style.top = `${TrueStartPosY}px`;
-                el.style.left = `${TrueStartPosX}px`;
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && isDragging) {
+                isDragging = false;
+                div.style.background = "red"
 
+                div.style.left = `${initialDivX}px`;
+                div.style.top = `${initialDivY}px`;
             }
-        }
-        document.onmousemove = (e2) => {
-            // calculate the new cursor position:
-            pos1 = startPosX - e2.clientX;
-            pos2 = startPosY - e2.clientY;
-            startPosX = e2.clientX;
-            startPosY = e2.clientY;
-            // set the element's new position:
-            el.style.top = (el.offsetTop - pos2) + "px";
-            el.style.left = (el.offsetLeft - pos1) + "px";
-        }
-        document.onclick = ()=>{
-            document.onmousemove = null;
-            document.onkeydown = null;
-        }
+        });
+
     }
+
 
     //touch
     let lastTouchTime = 0;
@@ -112,7 +108,7 @@ for (const el of targets){
         }
     }
 
-    el.addEventListener('touchstart', e => {
+    div.addEventListener('touchstart', e => {
         const now = (new Date()).getTime();
         if (now - lastTouchTime <= 200) {
             isDragging = true;
@@ -158,7 +154,7 @@ for (const el of targets){
         lastTouchTime = now;
     });
 
-    el.addEventListener('touchmove', e => {
+    div.addEventListener('touchmove', e => {
         if (isDragging && !isFocus) {
   
             //смещение
@@ -172,7 +168,7 @@ for (const el of targets){
         }
     });
 
-    el.addEventListener('touchend', e => {
+    div.addEventListener('touchend', e => {
         isDragging = false;
 
         if (!isFocus) {
@@ -180,4 +176,4 @@ for (const el of targets){
         }
         
     });
-}
+});

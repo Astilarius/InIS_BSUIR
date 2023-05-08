@@ -65,7 +65,7 @@ article {
 @media screen and (min-width: 900px) and (max-width: 1399px) {
   .adaptive{
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: none none;
     grid-template-rows: none none none none none none;
   }
   article:nth-child(1){
