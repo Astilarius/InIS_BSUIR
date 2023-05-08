@@ -80,12 +80,17 @@ divs.forEach(div => {
 
         const now = (new Date()).getTime();
         lastTouchTime = now;
+        
+        div.style.left = `${initialDivX}px`;
+        div.style.top = `${initialDivY}px`;
     }
     function documentTouchMove(e) {
         if (isDragging) {
             const touch = e.touches[0];
             const dx = touch.clientX - initialX;
             const dy = touch.clientY - initialY;
+            // const dx = initialX;
+            // const dy = initialY;
 
 
             //положение блока до + смещение
