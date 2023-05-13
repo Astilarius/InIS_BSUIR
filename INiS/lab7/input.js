@@ -22,7 +22,7 @@ const addObstacle =()=>{
     obstacle.appendChild(lowerObst)
     obstacle.appendChild(higherObst)
     obstacles.appendChild(obstacle)
-    setTimeout(addObstacle,1500)
+    setTimeout(addObstacle,2000)
 }
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
