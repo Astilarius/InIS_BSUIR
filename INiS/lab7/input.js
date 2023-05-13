@@ -12,11 +12,13 @@ const addObstacle =()=>{
     const obstacle = document.createElement('div')
     obstacle.className = 'obstacle'
     obstacle.style.left = `${1600}px`
-    const lowerObst = document.createElement('div')
-    const higherObst = document.createElement('div')
+    const lowerObst = document.createElement('img')
+    const higherObst = document.createElement('img')
     const height = getRandomIntInclusive(10, 45)
     higherObst.style.height = `${height}%`
+    higherObst.src = './pipe.png'
     lowerObst.style.height = `${55-height}%`
+    lowerObst.src = './pipe-upside-down.png'
     obstacle.appendChild(lowerObst)
     obstacle.appendChild(higherObst)
     obstacles.appendChild(obstacle)
@@ -59,6 +61,18 @@ const cycle=()=>{
     }
     if(isOk){
         setTimeout(cycle,10)
+    } else {
+        const loseMsg = document.createElement('h1')
+        loseMsg.textContent = 'Вы проиграли'
+        loseMsg.className = 'loseMsg'
+        document.body.appendChild(loseMsg)
+        const restartButton = document.createElement('button')
+        restartButton.onclick = ()=>{
+            window.location.reload();
+        }
+        restartButton.innerText = 'Начать заново'
+        restartButton.className = 'restartButton'
+        document.body.appendChild(restartButton)
     }
 }
 
